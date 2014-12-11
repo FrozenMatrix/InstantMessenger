@@ -26,7 +26,7 @@ import java.sql.Statement;
  */
 
 public class dataBase {
-    static final String dbIP = "192.168.2.14";//retrieveIP();
+    static final String dbIP = retrieveIP();
     static final String DATABASE_URL = "jdbc:mysql://"+dbIP+":3306/test";
     static final String UserName = "user";
     static final String Password = "beckett";
