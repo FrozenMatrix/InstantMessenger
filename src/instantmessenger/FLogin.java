@@ -63,6 +63,7 @@ public class FLogin extends javax.swing.JFrame {
         passField = new javax.swing.JPasswordField();
         btnSignUp = new javax.swing.JButton();
 
+        setTitle("SNU Chat");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 

@@ -61,6 +61,7 @@ public class FChat extends javax.swing.JFrame {
         msgArea = new javax.swing.JTextArea();
         btnLeaveChat = new javax.swing.JButton();
 
+        setTitle("SNU Chat");
         setResizable(false);
 
         btnSend.setText("Send");

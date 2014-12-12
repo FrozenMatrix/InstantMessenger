@@ -88,6 +88,7 @@ public class FTablePrint extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnConnect = new javax.swing.JButton();
 
+        setTitle("SNU Chat");
         setPreferredSize(new java.awt.Dimension(334, 460));
         setResizable(false);
 
