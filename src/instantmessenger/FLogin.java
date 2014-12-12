@@ -215,7 +215,7 @@ public class FLogin extends javax.swing.JFrame {
                 InstantMessenger.user = database.getName(database.IP);
                 friends.setVisible(true);
                 this.setVisible(false);
-                //friends.displayFrnds();
+                friends.displayFrnds();
             }
             else{
                 JOptionPane.showMessageDialog(this, "wrong password!");
