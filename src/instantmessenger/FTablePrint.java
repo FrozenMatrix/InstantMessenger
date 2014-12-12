@@ -40,7 +40,6 @@ public class FTablePrint extends javax.swing.JFrame {
             
             
             PrintStream printStream = new PrintStream(new CustomOutputStream(txtArea));
-            //PrintStream printStream = new PrintStream(System.out);
             System.setOut(printStream);
             System.setErr(printStream);
             try {
@@ -75,16 +74,26 @@ public class FTablePrint extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtArea = new javax.swing.JTextArea();
         txtFrnd = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btnConnect = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtArea = new javax.swing.JTextArea();
 
         setPreferredSize(new java.awt.Dimension(334, 460));
         setResizable(false);
 
-        jLabel1.setText("Type in the friend's name");
+        txtArea.setEditable(false);
+        txtArea.setBackground(new java.awt.Color(250, 250, 250));
+        txtArea.setColumns(20);
+        txtArea.setForeground(new java.awt.Color(250, 250, 250));
+        txtArea.setLineWrap(true);
+        txtArea.setRows(5);
+        txtArea.setFocusable(false);
+        txtArea.setRequestFocusEnabled(false);
+        jScrollPane1.setViewportView(txtArea);
+
+        jLabel1.setText("type in the friend's name");
 
         btnConnect.setText("Connect");
         btnConnect.addActionListener(new java.awt.event.ActionListener() {
@@ -93,36 +102,25 @@ public class FTablePrint extends javax.swing.JFrame {
             }
         });
 
-        txtArea.setEditable(false);
-        txtArea.setBackground(new java.awt.Color(245, 245, 245));
-        txtArea.setColumns(20);
-        txtArea.setFont(new java.awt.Font("Levenim MT", 0, 13)); // NOI18N
-        txtArea.setRows(5);
-        txtArea.setFocusable(false);
-        jScrollPane2.setViewportView(txtArea);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(txtFrnd, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnConnect))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(jLabel1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFrnd, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConnect))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtFrnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -196,8 +194,8 @@ public class FTablePrint extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConnect;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea txtArea;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTextArea txtArea;
     private javax.swing.JTextField txtFrnd;
     // End of variables declaration//GEN-END:variables
 }
