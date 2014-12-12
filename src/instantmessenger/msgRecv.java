@@ -32,12 +32,13 @@ public class msgRecv extends Thread{
             while(true){
                 msg = inp.readUTF();
                 if(msg.equals("qwert345")){
-                    InstantMessenger.Frn.setVisible(true);
-                    InstantMessenger.chatPage.setVisible(false);
-                    sock.close();
-                    InstantMessenger.server = null;
-                    InstantMessenger.server = new Serv(6789, database);
-                    break;
+//                    InstantMessenger.Frn.setVisible(true);
+//                    InstantMessenger.chatPage.setVisible(false);
+//                    sock.close();
+//                    InstantMessenger.server = null;
+//                    InstantMessenger.server = new Serv(6789, database);
+//                    break;
+                    InstantMessenger.exitApp();
                 }
                 InstantMessenger.chatPage.msgArea.append(frnd+": "+msg+"\n");
             }

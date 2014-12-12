@@ -20,6 +20,7 @@ public class FTablePrint extends javax.swing.JFrame {
      * Creates new form FTablePrint
      */
     PrintStream outOrg = System.out;
+    refreshFriends reFrns;
     public FTablePrint() {
         initComponents();
         this.getRootPane().setDefaultButton(btnConnect);
@@ -34,6 +35,7 @@ public class FTablePrint extends javax.swing.JFrame {
     
     public void displayFrnds(){
         try {
+            txtArea.setText("");
             database.getFriendsList();
             ResultSetMetaData met = database.resultSet.getMetaData();
             int numberOfColumns = met.getColumnCount();
@@ -41,7 +43,7 @@ public class FTablePrint extends javax.swing.JFrame {
             
             PrintStream printStream = new PrintStream(new CustomOutputStream(txtArea));
             System.setOut(printStream);
-            System.setErr(printStream);
+            //System.setErr(printStream);
             try {
                 database.getFriendsList();
                 database.resultSet.beforeFirst();
@@ -52,7 +54,7 @@ public class FTablePrint extends javax.swing.JFrame {
                     System.out.println();
                 }
                 
-                System.setOut(this.outOrg);
+              //  System.setOut(this.outOrg);
                 //txtFrnd.requestFocus();
             }
             catch (SQLException ex) {
@@ -62,6 +64,12 @@ public class FTablePrint extends javax.swing.JFrame {
         catch (SQLException ex)
         {  //         Logger.getLogger(FTablePrint.class.getName()).log(Level.SEVERE, null, ex);
             //Logger.getLogger(FTablePrint.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            if(reFrns == null){
+                reFrns = new refreshFriends();
+                reFrns.start();
+            }
         }
     }
 
@@ -80,20 +88,23 @@ public class FTablePrint extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnConnect = new javax.swing.JButton();
 
+        setTitle("SNU Chat");
         setPreferredSize(new java.awt.Dimension(334, 460));
         setResizable(false);
 
         txtArea.setEditable(false);
-        txtArea.setBackground(new java.awt.Color(250, 250, 250));
+        txtArea.setBackground(new java.awt.Color(240, 240, 240));
         txtArea.setColumns(20);
-        txtArea.setForeground(new java.awt.Color(250, 250, 250));
+        txtArea.setFont(new java.awt.Font("Levenim MT", 2, 14)); // NOI18N
         txtArea.setLineWrap(true);
         txtArea.setRows(5);
+        txtArea.setWrapStyleWord(true);
         txtArea.setFocusable(false);
+        txtArea.setOpaque(false);
         txtArea.setRequestFocusEnabled(false);
         jScrollPane1.setViewportView(txtArea);
 
-        jLabel1.setText("type in the friend's name");
+        jLabel1.setText("Type in your friend's name");
 
         btnConnect.setText("Connect");
         btnConnect.addActionListener(new java.awt.event.ActionListener() {
@@ -110,10 +121,13 @@ public class FTablePrint extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtFrnd, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConnect))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -14,7 +14,7 @@ import javax.swing.text.DefaultCaret;
 import java.net.InetSocketAddress;
 /**
  *
- * @author Saketh
+ * @author FrozenFractal
  */
 public class FChat extends javax.swing.JFrame {
 
@@ -61,6 +61,7 @@ public class FChat extends javax.swing.JFrame {
         msgArea = new javax.swing.JTextArea();
         btnLeaveChat = new javax.swing.JButton();
 
+        setTitle("SNU Chat");
         setResizable(false);
 
         btnSend.setText("Send");
@@ -83,7 +84,7 @@ public class FChat extends javax.swing.JFrame {
         msgArea.setOpaque(false);
         jScrollPane1.setViewportView(msgArea);
 
-        btnLeaveChat.setText("Leave chat");
+        btnLeaveChat.setText("Exit App");
         btnLeaveChat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLeaveChatActionPerformed(evt);
@@ -101,9 +102,10 @@ public class FChat extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(txtMsg)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnLeaveChat)
-                            .addComponent(btnSend, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btnSend, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnLeaveChat, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -115,9 +117,9 @@ public class FChat extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSend)
                     .addComponent(txtMsg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLeaveChat)
-                .addGap(25, 25, 25))
+                .addGap(37, 37, 37))
         );
 
         pack();
@@ -134,20 +136,18 @@ public class FChat extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSendActionPerformed
 
     private void btnLeaveChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeaveChatActionPerformed
-        try {
+       // try {
             msgS.send("qwert345");
-            friends.setVisible(true);
-            this.setVisible(false);
-            sock.close();
-
-            InstantMessenger.server = null;
-            InstantMessenger.server = new Serv(6789, database);
-
-            InstantMessenger.server.start();
-
-            InstantMessenger.remUser = null;
-        } catch (IOException ex) {
-        }
+//            friends.setVisible(true);
+//            this.setVisible(false);
+//            sock.close();
+//            InstantMessenger.server = null;
+//            InstantMessenger.server = new Serv(6789, database);
+//            InstantMessenger.server.start();
+//            InstantMessenger.remUser = null;
+            InstantMessenger.exitApp();
+      //  } catch (IOException ex) {
+      
         
     }//GEN-LAST:event_btnLeaveChatActionPerformed
 
