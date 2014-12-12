@@ -16,7 +16,7 @@ import static javax.swing.JOptionPane.YES_NO_OPTION;
 
 /**
  *
- * @author Saketh
+ * @author FrozenFractal
  */
 
 public class Serv extends Thread{
